@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wushuang.mapper.ProductMapper">
+ 	<select id="selectProductList" resultType="Product">
+ 		select * from t_product
+ 	</select>
+ 	
+ 	<delete id="deleteProductById" parameterType="Product">
+ 		delete from t_product where id = #{id}
+ 	</delete>
+ 	
+ 	<insert id="insertProduct" parameterType="Product" >
+ 		insert into t_product values (t_product_seq.nextval,#{code},#{name},#{product_imgPath},#{price},#{count},#{product_desc},#{product_status},#{category_id},#{brand_id})
+ 	</insert>
+</mapper>
